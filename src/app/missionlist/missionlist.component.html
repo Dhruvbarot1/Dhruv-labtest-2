@@ -1,4 +1,4 @@
-<h2 style="text-align:center;">COMP 3133 |Dhruv Barot| Lab Test2 | SpaceX API</h2>
+<h2 style="text-align:center;">COMP 3133 | Dhruv Barot | Lab Test 2 | SpaceX API</h2>
 
 <div style="padding: 16px;">
   <label>
@@ -27,11 +27,16 @@
 <hr />
 
 <div style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
-  <mat-card *ngFor="let mission of missions" style="background-color: #b3e5fc;">
+  <mat-card *ngFor="let mission of missions" style="background-color: #b3e5fc; padding: 12px;">
     <div style="display: flex; align-items: center;">
       <img [src]="mission.links.mission_patch_small" alt="patch" width="60" height="60" style="margin-right: 16px;" />
       <div>
-        <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+        <h3>
+          <a [routerLink]="['/details', mission.flight_number]" style="text-decoration: none; color: #0d47a1;">
+            {{ mission.mission_name }}
+          </a>
+          <small>({{ mission.launch_year }})</small>
+        </h3>
         <p>{{ mission.details || 'No details available.' }}</p>
       </div>
     </div>

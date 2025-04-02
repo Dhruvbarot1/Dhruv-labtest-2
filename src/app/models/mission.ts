@@ -13,6 +13,9 @@ export interface Mission {
         }[];
       };
     };
+    launch_site?: {
+      site_name_long: string;
+    };
     links: {
       mission_patch_small: string;
       wikipedia: string;

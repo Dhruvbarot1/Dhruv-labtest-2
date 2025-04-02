@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router'; // ✅ Add this!
 import { SpacexapiService } from '../network/spacexapi.service';
 import { Mission } from '../models/mission';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-missionlist',
   standalone: true,
-  imports: [CommonModule, MatCardModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatCardModule, RouterModule], // ✅ Add RouterModule here too
   templateUrl: './missionlist.component.html',
   styleUrls: ['./missionlist.component.css']
 })
@@ -17,8 +18,8 @@ export class MissionlistComponent implements OnInit {
   allMissions: Mission[] = [];
 
   filterYear = '';
-  launchSuccess: string = '';
-  landingSuccess: string = '';
+  launchSuccess = '';
+  landingSuccess = '';
 
   constructor(private spaceXService: SpacexapiService) {}
 
