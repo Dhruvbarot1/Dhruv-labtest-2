@@ -1,0 +1,39 @@
+<h2 style="text-align:center;">COMP 3133 |Dhruv Barot| Lab Test2 | SpaceX API</h2>
+
+<div style="padding: 16px;">
+  <label>
+    <strong>Filter by Launch Year:</strong>
+    <input [(ngModel)]="filterYear" />
+  </label>
+  <button (click)="applyFilters()">Filter</button>
+
+  <div style="margin-top: 12px;">
+    <label><strong>Launch</strong></label><br />
+    <input type="radio" [(ngModel)]="launchSuccess" value="success" /> Successful
+    <input type="radio" [(ngModel)]="launchSuccess" value="failed" /> Failed
+  </div>
+
+  <div style="margin-top: 12px;">
+    <label><strong>Landing</strong></label><br />
+    <input type="radio" [(ngModel)]="landingSuccess" value="success" /> Successful
+    <input type="radio" [(ngModel)]="landingSuccess" value="failed" /> Failed
+  </div>
+
+  <div style="margin-top: 12px;">
+    <button (click)="resetFilters()">Reset Filters</button>
+  </div>
+</div>
+
+<hr />
+
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
+  <mat-card *ngFor="let mission of missions" style="background-color: #b3e5fc;">
+    <div style="display: flex; align-items: center;">
+      <img [src]="mission.links.mission_patch_small" alt="patch" width="60" height="60" style="margin-right: 16px;" />
+      <div>
+        <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+        <p>{{ mission.details || 'No details available.' }}</p>
+      </div>
+    </div>
+  </mat-card>
+</div>

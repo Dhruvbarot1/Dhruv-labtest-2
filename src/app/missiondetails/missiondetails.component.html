@@ -1,0 +1,12 @@
+<h2 style="text-align:center;">SpaceX Mission Details</h2>
+
+<mat-card *ngIf="mission">
+  <img [src]="mission.links.mission_patch_small" height="200" />
+  <mat-card-content>
+    <h3>{{ mission.mission_name }}</h3>
+    <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+    <p><strong>Rocket:</strong> {{ mission.rocket.rocket_name }} ({{ mission.rocket.rocket_type }})</p>
+    <p><strong>Details:</strong> {{ mission.details }}</p>
+    <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+  </mat-card-content>
+</mat-card>

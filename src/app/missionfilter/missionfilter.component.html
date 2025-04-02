@@ -1,0 +1,24 @@
+<h2 style="text-align: center;">SpaceX Mission Filter</h2>
+
+<div style="text-align: center; margin: 20px 0;">
+  <span *ngFor="let year of years" style="margin: 4px;">
+    <button (click)="filterByYear(year)" style="padding: 6px 12px;">
+      {{ year }}
+    </button>
+  </span>
+  <button (click)="resetFilter()" style="padding: 6px 12px; margin-left: 10px;">
+    Reset
+  </button>
+</div>
+
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 16px;">
+  <mat-card *ngFor="let mission of missions" style="background-color: #e3f2fd;">
+    <div style="display: flex; align-items: center;">
+      <img [src]="mission.links.mission_patch_small" alt="patch" width="60" height="60" style="margin-right: 16px;" />
+      <div>
+        <h3>{{ mission.mission_name }} <small>({{ mission.launch_year }})</small></h3>
+        <p>{{ mission.details || 'No details available.' }}</p>
+      </div>
+    </div>
+  </mat-card>
+</div>
